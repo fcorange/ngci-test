@@ -19,7 +19,7 @@ HTTP_RESPONSE=$(curl --request POST \
   --header 'content-type: application/json' \
   # --header 'x-attribution-actor-id: SOME_STRING_VALUE' \
   # --header 'x-attribution-login: SOME_STRING_VALUE' \
-  --data '{"branch":"dev","parameters":{"test-project1":true}}'
+  --data '{"branch":"dev","parameters":{"test-project1":true}}')
 
 
 
