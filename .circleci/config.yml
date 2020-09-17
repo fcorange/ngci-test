@@ -2,6 +2,9 @@
 version: 2.1
 
 parameters:
+  trigger-workflows:
+    type: boolean
+    default: true
   test-project1:
     type: boolean
     default: false
@@ -30,6 +33,7 @@ jobs:
       - checkout
       - run: bazel test //project2/...:all    
 workflows:
+  when: << pipeline.parameters.trigger-workflows >>
   trigger-workflows:
     jobs:
       - trigger-workflows
