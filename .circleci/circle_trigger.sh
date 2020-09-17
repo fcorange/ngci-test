@@ -11,14 +11,12 @@ echo -e "  $DATA"
 
 URL="${CIRCLE_API}/v2/project/${REPOSITORY_TYPE}/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/pipeline"
 
-echo -e "  ${CIRCLE_TOKEN}"
-echo -e "  ${CIRCLE_API_USER_TOKEN}"
 
 echo -e "  $URL"
 
 HTTP_RESPONSE=$(curl --request POST \
   --url https://circleci.com/api/v2/project/gh/fcorange/ngci-test/pipeline \
-  --header 'authorization: Basic ${CIRCLE_API_USER_TOKEN}' \
+  --header 'authorization: Basic 4ce8830073aefc635919d62306180dabf5411200' \
   --header 'content-type: application/json' \
   # --header 'x-attribution-actor-id: SOME_STRING_VALUE' \
   # --header 'x-attribution-login: SOME_STRING_VALUE' \
