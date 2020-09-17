@@ -15,7 +15,7 @@ echo -e "  $URL"
 
 HTTP_RESPONSE=$(curl --request POST \
   --url https://circleci.com/api/v2/project/gh/fcorange/ngci-test/pipeline \
-  --header 'authorization: ${CIRCLE_API_USER_TOKEN}' \
+  --header 'authorization: Basic ${CIRCLE_TOKEN}' \
   --header 'content-type: application/json' \
   # --header 'x-attribution-actor-id: SOME_STRING_VALUE' \
   # --header 'x-attribution-login: SOME_STRING_VALUE' \
