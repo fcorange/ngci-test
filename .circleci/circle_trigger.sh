@@ -11,6 +11,9 @@ echo -e "  $DATA"
 
 URL="${CIRCLE_API}/v2/project/${REPOSITORY_TYPE}/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/pipeline"
 
+echo -e "  ${CIRCLE_TOKEN}"
+echo -e "  ${CIRCLE_API_USER_TOKEN}"
+
 echo -e "  $URL"
 
 HTTP_RESPONSE=$(curl --request POST \
