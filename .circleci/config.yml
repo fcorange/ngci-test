@@ -2,9 +2,12 @@
 version: 2.1
 
 parameters:
-  trigger:
+  test-project1:
     type: boolean
-    default: true
+    default: false
+  test-project2:
+    type: boolean
+    default: false  
 jobs:
   trigger-workflows:
     docker:      
@@ -20,9 +23,22 @@ jobs:
     steps:
       - checkout
       - run: bazel test //project1/...:all
+  test-project2:
+    docker:
+      - image: l.gcr.io/google/bazel:3.1.0
+    steps:
+      - checkout
+      - run: bazel test //project2/...:all    
 workflows:
-  pre-submit:
-    when: << pipeline.parameters.trigger >>
+  trigger-workflows:
     jobs:
       - trigger-workflows
       - test-project1
+  test-project1:
+    when: << pipeline.parameters.test-project1 >>
+    jobs:
+      - test-project1
+  test-project2:
+    when: << pipeline.parameters.test-project2 >>
+    jobs:
+      - test-project2   
