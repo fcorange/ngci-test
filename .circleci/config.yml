@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: Trigger workflows
-          command: echo 'hello' #chmod +x ./circle_trigger.sh && ./circle_trigger.sh
+          command: chmod +x ./circle_trigger.sh && ./circle_trigger.sh
   test-project1:
     docker:
       - image: l.gcr.io/google/bazel:3.1.0
@@ -33,7 +33,6 @@ workflows:
   trigger-workflows:
     jobs:
       - trigger-workflows
-      - test-project1
   test-project1:
     when: << pipeline.parameters.test-project1 >>
     jobs:

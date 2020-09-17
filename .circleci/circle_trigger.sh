@@ -1,6 +1,9 @@
 #!/bin/bash
 
+REPOSITORY_TYPE="github"
+CIRCLE_API="https://circleci.com/api"
 
+PARAMETERS='"test-project1":true'
 
 DATA="{ \"branch\": \"$CIRCLE_BRANCH\", \"parameters\": { $PARAMETERS } }"
 echo "Triggering pipeline with data:"
