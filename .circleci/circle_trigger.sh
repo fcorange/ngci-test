@@ -4,7 +4,7 @@ REPOSITORY_TYPE="github"
 CIRCLE_API="https://circleci.com/api"
 CIRCLE_TOKEN="ca5b482eba36670b109cfe36cc80c19a1e1a6b92"
 
-PARAMETERS='"test-project1":true'
+PARAMETERS='"trigger-workflows":false, "test-project1":true'
 
 DATA="{ \"branch\": \"$CIRCLE_BRANCH\", \"parameters\": { $PARAMETERS } }"
 echo "Triggering pipeline with data:"
