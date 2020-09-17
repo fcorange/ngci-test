@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: Trigger workflows
-          command: chmod +x ./circle_trigger.sh && ./circle_trigger.sh
+          command: chmod +x ./.circleci/circle_trigger.sh && ./.circleci/circle_trigger.sh
   test-project1:
     docker:
       - image: l.gcr.io/google/bazel:3.1.0
