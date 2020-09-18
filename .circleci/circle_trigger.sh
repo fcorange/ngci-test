@@ -23,6 +23,7 @@ if [[ $CHANGED_FILES == *"project2/"* ]]; then
   TEST_PROJECT2=true
 fi
 
+PARAMETERS='"trigger_workflows":false'
 PARAMETERS+=", \"test-project1\":$TEST_PROJECT1"
 PARAMETERS+=", \"test-project2\":$TEST_PROJECT2"
 
