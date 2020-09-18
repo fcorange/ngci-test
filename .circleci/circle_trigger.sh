@@ -26,6 +26,8 @@ fi
 PARAMETERS+=", \"test-project1\":$TEST_PROJECT1"
 PARAMETERS+=", \"test-project2\":$TEST_PROJECT2"
 
+echo "$PARAMETERS"
+
 # Assemble POST data
 DATA="{ \"branch\": \"$CIRCLE_BRANCH\", \"parameters\": { $PARAMETERS } }"
 echo "Triggering pipeline with data:"
