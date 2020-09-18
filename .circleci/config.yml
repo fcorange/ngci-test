@@ -20,18 +20,15 @@ jobs:
       - run:
           name: Trigger workflows
           command: chmod +x ./.circleci/circle_trigger.sh && ./.circleci/circle_trigger.sh
-  test-project1:
+  run-test:
+    parameters:
+      test-target:
+        type: string
     docker:
       - image: l.gcr.io/google/bazel:3.1.0
     steps:
       - checkout
-      - run: bazel test //project1/...:all
-  test-project2:
-    docker:
-      - image: l.gcr.io/google/bazel:3.1.0
-    steps:
-      - checkout
-      - run: bazel test //project2/...:all    
+      - run: bazel test << parameters.test-target >>  
 workflows:
   trigger-workflows:
     when: << pipeline.parameters.trigger-workflows >>
@@ -40,8 +37,10 @@ workflows:
   test-project1:
     when: << pipeline.parameters.test-project1 >>
     jobs:
-      - test-project1
+      - run-test:
+          test-target: //project1/...:all  
   test-project2:
     when: << pipeline.parameters.test-project2 >>
     jobs:
-      - test-project2   
+      - run-test:
+          test-target: //project2/...:all
