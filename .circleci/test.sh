@@ -19,3 +19,14 @@ fi
 
 echo "$TEST_PROJECT1"
 echo "$TEST_PROJECT2"
+
+PARAMETERS='"trigger-workflows":false, "test-project1":"$TEST_PROJECT1", "test-project2":${TEST_PROJECT2}'
+echo "$PARAMETERS"
+
+
+
+PARAMS='"trigger":false'
+
+PARAMS+=", \"test-project1\":$TEST_PROJECT1"
+
+echo "$PARAMS"

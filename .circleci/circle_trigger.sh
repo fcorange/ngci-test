@@ -23,7 +23,8 @@ if [[ $CHANGED_FILES == *"project2/"* ]]; then
   TEST_PROJECT2=true
 fi
 
-PARAMETERS='"trigger-workflows":false, "test-project1":${TEST_PROJECT1}, "test-project2":${TEST_PROJECT2}'
+PARAMETERS+=", \"test-project1\":$TEST_PROJECT1"
+PARAMETERS+=", \"test-project2\":$TEST_PROJECT2"
 
 # Assemble POST data
 DATA="{ \"branch\": \"$CIRCLE_BRANCH\", \"parameters\": { $PARAMETERS } }"
