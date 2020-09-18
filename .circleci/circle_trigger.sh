@@ -9,12 +9,12 @@ CIRCLE_TOKEN="ca5b482eba36670b109cfe36cc80c19a1e1a6b92"
 CURRENT_COMMIT_HASH=$(git rev-parse HEAD)
 CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${CURRENT_COMMIT_HASH})
 
-<<<<<<< HEAD
 TEST_PROJECT1=false
 TEST_PROJECT2=false
 
-=======
->>>>>>> 10e13346590a075c1df03d4c1e83b816431ace4a
+echo $TEST_PROJECT1
+echo $TEST_PROJECT2
+
 if [[ $CHANGED_FILES == *"project1/"* ]]; then
   TEST_PROJECT1=true
 fi
